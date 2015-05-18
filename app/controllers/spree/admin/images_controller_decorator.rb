@@ -54,4 +54,5 @@ Spree::Admin::ImagesController.class_eval do
     variant.save
 
   end
+
 end

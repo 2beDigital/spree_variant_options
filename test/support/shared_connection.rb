@@ -7,6 +7,6 @@ class ActiveRecord::Base
   end
 end
 
-# Forces all threads to share the same connection. This works on
+# Forces all threads to shared the same connection. This works on
 # Capybara because it starts the web server in a thread.
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
