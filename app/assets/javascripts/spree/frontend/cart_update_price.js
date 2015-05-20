@@ -48,10 +48,10 @@ function actualizarPrecio(params, id, price)
 
     if (isNaN(array[0]) == false) {
         $(ids + ' .lead.text-primary.cart-item-total').text(total + ' ' + currency);
-        $('#total_order_cost').text( suma + ' ' + currency + ' ' + array[2]);
+        $('#total_order_cost').text( suma + ' ' + currency);
     } else {
         $(ids + ' .lead.text-primary.cart-item-total').text(currency + total);
-        $('#total_order_cost').text(currency + suma + ' ' + array[1]);
+        $('#total_order_cost').text(currency + suma);
     }
 
     $('#cart_count').text(cart_count);
