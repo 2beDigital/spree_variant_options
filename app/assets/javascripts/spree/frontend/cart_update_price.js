@@ -6,7 +6,7 @@ function actualizarPrecio(params, id, price)
     var array = order.split(' ');
     array[0] = array[0].replace(',','');
     var ids = ('#line-item-' + params);
-    var total_variant = $(ids + ' .lead.text-primary.cart-item-total').text();
+    var total_variant = $(ids + ' .cart-item-total').text();
     var currency = 0;
     var order_total = 0;
     if (isNaN(array[0]) == false){
@@ -47,10 +47,10 @@ function actualizarPrecio(params, id, price)
     total = total.toFixed(2);
 
     if (isNaN(array[0]) == false) {
-        $(ids + ' .lead.text-primary.cart-item-total').text(total + ' ' + currency);
+        $(ids + ' .cart-item-total').text(total + ' ' + currency);
         $('#total_order_cost').text( suma + ' ' + currency + ' ' + array[2]);
     } else {
-        $(ids + ' .lead.text-primary.cart-item-total').text(currency + total);
+        $(ids + ' .cart-item-total').text(currency + total);
         $('#total_order_cost').text(currency + suma + ' ' + array[1]);
     }
 
