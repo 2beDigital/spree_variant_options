@@ -36,14 +36,12 @@ function actualizarPrecio(params, id, price)
 
     var count = (total - total_variant) / price;
 
-    count = parseInt(count);
+    count = Math.round(count);
     cart_count = cart_count + count;
 
     suma = suma + total;
 
     suma = suma.toFixed(2);
-
-    cart_count = cart_count + count;
 
     total = total.toFixed(2);
 
