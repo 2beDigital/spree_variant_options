@@ -1,4 +1,5 @@
-<!-- replace '#products' disable -->
+<!-- replace '#products'-->
+<!-- disabled -->
 <ul id="products" class="inline product-listing columns twelve omega"  data-hook>
   <% products.each do |product| %>
     <% option_values = Spree::OptionValue.for_product(product).where(option_type_id: SpreeVariantOptions::VariantConfig.main_option_type_id).all %>
