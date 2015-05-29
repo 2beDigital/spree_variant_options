@@ -223,7 +223,7 @@ function VariantOptions(params) {
                 $('#product-price .cost-price.selling').text('');
             }
             $("#product-price .product-section-title").css({"display": "inline"});
-            $("#product-price #quantity").css({"display": "inline"});
+            $("#quantity").css({"display": "inline"});
         } else {
             if (variants) {
                 variants_ids = $.keys(variants);
@@ -239,7 +239,7 @@ function VariantOptions(params) {
             // Añadimos esta linea para borrar el precio de costo en caso de borrar seleccion de color.
             $('#product-price .cost-price.selling').text('');
             $("#product-price .product-section-title").css({"display": "none"});
-            $("#product-price #quantity").css({"display": "none"});
+            $("#quantity").css({"display": "none"});
         }
     }
 
