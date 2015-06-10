@@ -217,9 +217,11 @@ function VariantOptions(params) {
                 // depends on modified version of product.js
             }
             if (cost_prices != 0 && cost_prices != null && cost_prices != undefined ) {
+                $('#product-price .cost-price.selling').css({"display": "inline"});
                 $('#product-price .cost-price.selling').text(cost_prices + ' €');
 
             } else {
+                $('#product-price .cost-price.selling').css({"display": "none"});
                 $('#product-price .cost-price.selling').text('');
             }
             $("#product-price .product-section-title").css({"display": "inline"});

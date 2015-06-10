@@ -92,3 +92,52 @@ h6.variant-option-type strong.selection.out-of-stock {
 .variant-option-type label {
   display: inline-block;
 }
+
+.out-of-stock{
+    font-weight: bolder;
+}
+#product-price {
+    width: 35%;
+    display: inline-block;
+    vertical-align: bottom;
+}
+#product-price h6{
+        font-weight: bolder;
+}
+#product-price span {
+        font-size: 18px;
+}
+#product-price span.cost-price.selling {
+        font-size: 12px;
+        margin-left: 10px;
+}
+#product-price div {
+        display: inline-block;
+}
+
+
+.add-to-cart{
+    width: 64%;
+    display: inline-block;
+}
+
+input#quantity{
+    display: inline;
+    width: 35%;
+    line-height: 30px;
+    text-align: right;
+}
+
+div[data-hook="product_price"]{
+    margin-bottom: 50px;
+    padding: 0px;
+}
+
+div#product-variants a.clear-button{
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    background: url(<%= asset_path "frontend/delete_icon.png" %> ) no-repeat;
+    background-size: 10px 10px;
+}
