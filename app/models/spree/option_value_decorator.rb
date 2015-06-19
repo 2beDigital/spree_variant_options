@@ -7,7 +7,6 @@ Spree::OptionValue.class_eval do
     :path          => SpreeVariantOptions::VariantConfig[:option_value_path]
     
   validates_attachment_size :image, :less_than => 2.megabytes
-  validates_attachment_presence :image
   validates_attachment_content_type :image, :content_type => /\Aimage/    
 
   def has_image?
