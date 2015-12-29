@@ -63,8 +63,12 @@ function VariantOptions(params) {
         enable(parent.find('a.option-value'));
         // Condicional añadido para seleccionar variant si es solo una.
         if (products.length == 1 && booleano == false) {
-            divs.find('a').click();  
-            console.log('click');
+            divs.find('a').click(); 
+            if (divs.find('a.option-value').hasClass("out-of-stock")){
+                $('button#add-to-cart-button').attr('disabled', true).fadeTo(100, 0.5); 
+            } else {
+                $('button#add-to-cart-button').attr('disabled', false).fadeTo(100, 1); 
+            }
             booleano = true;          
         }
 
@@ -221,7 +225,6 @@ function VariantOptions(params) {
     }
 
     function toggle(variants) {
-        var selected = divs.find('a.selected');
         if (variant) {
             $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val(variant.id);
             $('#product-price .price').removeClass('unselected').text(variant.price.replace('$','€'));
@@ -236,8 +239,8 @@ function VariantOptions(params) {
                 }
             }
 
-            $('form[data-form-type="variant"] button[type=submit]').attr('disabled', false).fadeTo(100, 1);
-            
+            //$('form[data-form-type="variant"] button[type=submit]').attr('disabled', false).fadeTo(100, 1);
+
             try {
                 show_variant_images(variant.id);
             } catch(error) {
