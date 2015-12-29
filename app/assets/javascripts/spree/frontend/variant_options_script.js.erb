@@ -54,13 +54,20 @@ function VariantOptions(params) {
     var variant, divs, parent, index = 0;
     var selection = [];
     var buttons;
-
+    var booleano = false;
 
     function init() {
         divs = $('#product-variants .variant-options');
         disable(divs.find('a.option-value').addClass('locked'));
         update();
         enable(parent.find('a.option-value'));
+        // Condicional añadido para seleccionar variant si es solo una.
+        if (products.length == 1 && booleano == false) {
+            divs.find('a').click();  
+            console.log('click');
+            booleano = true;          
+        }
+
         toggle();
         $('div.variant-options a.clear-button').hide().click(handle_clear);
 
@@ -69,7 +76,25 @@ function VariantOptions(params) {
                 $(this).find("ul.variant-option-values li a.in-stock:first").click();
             });
         }
-        console.log("variants:", products.length);
+
+         // Añadimos funcionalidad 'alert' para mostrar aviso de falta seleccionar una opcion.
+        $('#add-to-cart-button').on('click', function (event) {
+            var selected = divs.find('a.selected');
+            if (selected.length != divs.length) {
+                event.preventDefault();
+                $('#shadow-alert').css({'display': 'inherit'});
+                $('#alert-select-variant').css({'display': 'inherit', 'visibility': 'visible'});
+                return false;
+            } else {
+                $('#shadow-alert').css({'display': 'none'});
+                $('#alert-select-variant').css({'display': 'none', 'visibility': 'hidden'});
+            }
+        });
+
+        $('#alert-select-variant-button').on('click', function(event){
+            $('#shadow-alert').css({ 'display': 'none'});
+            $('#alert-select-variant').css({'display': 'none', 'visibility': 'hidden'});
+        });
 
     }
 
@@ -196,11 +221,6 @@ function VariantOptions(params) {
     }
 
     function toggle(variants) {
-        if (products.length == 1) {
-            divs.find('a').addClass('selected');
-            handle_selected();
-            advance();
-        }
         var selected = divs.find('a.selected');
         if (variant) {
             $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val(variant.id);
@@ -216,9 +236,8 @@ function VariantOptions(params) {
                 }
             }
 
-            if (variant.in_stock)
-                $('#cart-form button[type=submit]').attr('disabled', false).fadeTo(100, 1);
             $('form[data-form-type="variant"] button[type=submit]').attr('disabled', false).fadeTo(100, 1);
+            
             try {
                 show_variant_images(variant.id);
             } catch(error) {
@@ -250,26 +269,6 @@ function VariantOptions(params) {
             $("#price-title").css({"display": "none"});
             $("#quantity").css({"display": "none"});
         }
-
-        // Añadimos funcionalidad 'alert' para mostrar aviso de falta seleccionar una opcion.
-        $('#add-to-cart-button').on('click', function (event) {
-            var selected = divs.find('a.selected');
-            if (selected.length != divs.length) {
-                event.preventDefault();
-                $('#shadow-alert').css({'display': 'inherit'});
-                $('#alert-select-variant').css({'display': 'inherit', 'visibility': 'visible'});
-                return false;
-            } else {
-                $('#shadow-alert').css({'display': 'none'});
-                $('#alert-select-variant').css({'display': 'none', 'visibility': 'hidden'});
-            }
-        });
-
-        $('#alert-select-variant-button').on('click', function(event){
-            $('#shadow-alert').css({ 'display': 'none'});
-            $('#alert-select-variant').css({'display': 'none', 'visibility': 'hidden'});
-        });
-
     }
 
     function clear(i) {
