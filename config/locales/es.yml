@@ -1,3 +1,5 @@
 es:
   select_an_option: Selecciona una opción
   accept: Aceptar
+  spree:
+    select_a: "%{name}: "
