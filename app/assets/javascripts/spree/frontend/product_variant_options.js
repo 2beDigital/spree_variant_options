@@ -18,8 +18,11 @@ var show_variant_images = function(variants_ids) {
         thumb = $($('ul.thumbnails li:visible').eq(0));
       }
       var newImg = thumb.find('a').attr('href');
+      var newImgoriginal = thumb.find('a').attr('data-original');
       $('ul.thumbnails li').removeClass('selected');
       thumb.addClass('selected');
+      $('#main-image img').first().attr('src', newImg);
+-     $('#main-image a:first-child').attr('href', newImgoriginal);
       $("#main-image").data('selectedThumb', newImg);
       $("#main-image").data('selectedThumbId', thumb.attr('id'));
     }
