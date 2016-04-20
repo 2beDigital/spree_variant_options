@@ -44,9 +44,9 @@ div.variant-options a.clear-button {
     font-size: 12px;
 }
 
-.option-value.selected,
-.option-value.in-stock:hover {
-    background-color: lightgrey;
+.variant-option-values li a.option-value.selected,
+.variant-option-values li a.option-value.in-stock:hover{
+    background-color: #333;
     border-color: #696969;
     color: #fff;
 }
