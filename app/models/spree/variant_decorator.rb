@@ -8,6 +8,7 @@ Spree::Variant.class_eval do
     {
       :id    => self.id,
       :in_stock => self.in_stock?,
+      :can_supply => self.can_supply?,
       :price => number_to_currency(actual_price)
     }
   end
