@@ -34,7 +34,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency('coffee-rails',     '~> 3.2')
   s.add_development_dependency('capybara')
   s.add_development_dependency('launchy')
-  s.add_development_dependency('database_cleaner')
   s.add_development_dependency('debugger')
   s.add_development_dependency("selenium-webdriver", '2.31.0')
 
